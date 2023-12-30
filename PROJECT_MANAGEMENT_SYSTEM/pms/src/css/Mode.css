@@ -1,0 +1,304 @@
+body.dark {
+    background-color: #111;
+}
+
+.dark .workspace {
+    background-color: #333;
+}
+
+.dark .side-bar {
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(85, 86, 86, 0.5);
+}
+
+.dark .top-bar {
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(40, 47, 47, 0.5);
+}
+
+.dark .Project-card {
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(65, 63, 63, 0.5);
+}
+
+.dark .buttons {
+    background-color: #008b8b18;
+    box-shadow: 0 2px 4px rgba(65, 71, 71, 0.5);
+}
+
+.dark .table-container {
+    background-color: #222;
+}
+
+.dark table {
+    background-color: #222;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark th {
+    background-color: #008b8b3a;
+}
+
+.dark tr:hover {
+    background-color: #333;
+}
+
+.dark .Delete-button {
+    background-color: #ff5555;
+    box-shadow: 0 2px 4px rgba(255, 85, 85, 0.5);
+}
+
+.dark .Edit-button {
+    background-color: #008B8B;
+    box-shadow: 0 2px 4px rgba(0, 139, 139, 0.5);
+}
+
+.dark .View-button {
+    background-color: #008b35;
+    box-shadow: 0 2px 4px rgba(0, 139, 139, 0.5);
+}
+
+.dark .DropDown {
+    color: #fff;
+}
+
+.dark .DropDown option {
+    color: #fff;
+    background-color: #333;
+}
+
+.dark .DropDown::after {
+    border-top: 5px solid #046071;
+}
+
+.dark .checkbox-label {
+    color: #fff;
+}
+
+.dark table tr:nth-child(even) {
+    background-color: #333333;
+}
+
+.dark #StartDate {
+    color: #8cedb1;
+}
+
+.dark #EndDate {
+    color: #ed8c8c;
+}
+
+.dark table tr:nth-child(odd) {
+    background-color: #464545;
+}
+
+.dark table tr {
+    color: #fff;
+}
+
+.dark .DropDown {
+    color: #045151;
+}
+
+.dark .DropDown option:checked {
+    background-color: #008B8B;
+    color: #fff;
+}
+
+.dark .Project-name {
+    color: #6edfdf;
+}
+
+.dark .Project-type {
+    color: #ffffff;
+}
+
+.dark .Start-date,
+.End-date {
+    color: #ffffff;
+}
+
+.dark .image-container {
+    box-shadow: 0 2px 4px rgba(172, 190, 190, 0.2);
+}
+
+.dark .Project-details {
+    box-shadow: 0 2px 4px rgba(172, 190, 190, 0.2);
+}
+
+.dark .table-container {
+    box-shadow: 0 2px 4px rgba(172, 190, 190, 0.2);
+}
+
+.dark th {
+    background-color: #0000003a;
+}
+
+.dark tr:hover {
+    background-color: #f5f5f5;
+}
+
+.dark td:nth-child(odd) {
+    background-color: #3e43427d;
+}
+
+.dark th:nth-child(odd) {
+    background-color: #212121a3;
+}
+
+
+.dark .togglecase {
+    justify-content: right;
+    background-color: #3f3f3f;
+    box-shadow: 0 2px 4px rgba(110, 112, 112, 0.701);
+}
+
+.dark .toggle {
+    background-color: #373636;
+    color: floralwhite;
+    box-shadow: 0 2px 4px rgba(110, 112, 112, 0.701);
+}
+
+/* general popUp*/
+.dark .popup-content {
+    background-color: #333333;
+    border: 1px solid #7f8585;
+}
+
+.dark .header {
+    color: #96edf0;
+}
+
+.dark .header-popup {
+    color: #96edf0;
+}
+
+/* Delete PopUp */
+
+.dark .Que {
+    color: #97e3f0;
+}
+
+/* Edit create PopUp */
+
+.dark .project-input-field input {
+    background-color: #e5595900;
+    color: rgb(202, 249, 237);
+}
+
+.dark .date-container .datePick {
+    background-color: #00000000;
+    color: rgb(202, 249, 237);
+}
+
+.dark .submit-btn button[type="submit"] {
+    background-color: #96edf0;
+    color: #333;
+}
+
+.dark ul li {
+    color: #292d30;
+    border: solid #818385 0.1px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: #849398;
+    padding: 5px;
+    display: inline;
+    margin: 3px;
+}
+
+.dark .user-profile {
+    background-color: #272626;
+    box-shadow: 0 2px 4px rgba(187, 184, 184, 0.5);
+}
+
+.dark .profile-details {
+    background-color: #474646;
+}
+
+.dark .name-field p {
+    color: #a7f1f2;
+}
+
+.dark .name-field label {
+    color: #d8ebeb;
+}
+
+.dark .detail h3 {
+    color: #d8ebeb;
+}
+
+.dark .username {
+    color: #a7f1f2;
+}
+
+.dark .slider-content {
+    background-color: #272626;
+    box-shadow: 0 2px 4px rgba(39, 38, 38, 0.553);
+}
+
+.dark .edit-name-field input,
+.dark .input-container textarea,
+.dark .detail input {
+    background-color: #11fff715;
+    color: floralwhite;
+    border: 0;
+}
+
+.dark .edit-name-field label {
+    color: #d8ebeb;
+}
+
+.dark .detail label {
+    color: #8bafb9;
+}
+
+.dark .edit-button {
+    color: #9cc9d1;
+}
+
+.dark .edit-button:hover {
+    color: #1bffe4;
+}
+
+.dark .update-button:hover {
+    background-color: #1bffe4;
+    color: #046071;
+}
+
+.dark .badge-container,
+.dark .contentArea {
+    background-color: #50697212;
+    box-shadow: 0 2px 4px rgba(162, 223, 234, 0.1);
+}
+
+.dark {
+    .contentArea::-webkit-scrollbar {
+        width: 8px;
+        background-color: #b9e9ed33;
+    }
+
+    .contentArea::-webkit-scrollbar-thumb {
+        background-color: #82f1f1;
+    }
+
+    .contentArea::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+}
+
+.dark .delete-account {
+    background-color: rgb(202, 56, 56);
+}
+
+.dark .name-fields {
+    background-color: #50697212;
+    box-shadow: 0 2px 4px rgba(162, 223, 234, 0.1);
+}
+
+.dark .Icon {
+    color: #79e9e9;
+}
+
+.dark .side-bar .ButtonWithIcon:hover .Icon {
+    color: #05f0f0;
+}

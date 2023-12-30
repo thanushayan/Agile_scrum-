@@ -1,0 +1,386 @@
+.members-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #cccccc28;
+}
+
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.toggle-case {
+    margin-left: auto;
+}
+
+.toggle {
+    cursor: pointer;
+}
+
+.profile-button {
+    padding: 8px 16px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px black;
+}
+
+.profile-button:hover {
+    background-color: rgb(9, 103, 103);
+}
+
+
+.members-container {
+    background-color: #cccccc28;
+    padding: 10px;
+    box-shadow: 1px 0.5px 2px black;
+    flex: 1;
+    margin-top: 10px;
+    margin-left: 15px;
+    min-height: 500px;
+    position: relative;
+}
+
+.animate {
+    transform: scale(1.05);
+}
+
+@keyframes memberRearrange {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes memberRearrange {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes memberMoveUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes memberMoveDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(50px);
+    }
+}
+
+.member-move-up {
+    animation: memberMoveUp 0.3s ease-in-out;
+}
+
+.member-move-down {
+    animation: memberMoveDown 0.3s ease-in-out;
+}
+
+.animate-enter {
+    transition: transform 0.3s ease-in-out;
+}
+
+.animate-enter-active {
+    transform: translateY(-5px);
+}
+
+.members-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.members-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.add-member-button {
+    display: flex;
+    align-items: center;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px black;
+}
+
+.add-member-button:hover {
+    background-color: rgb(9, 103, 103);
+}
+
+.members-list {
+    display: grid;
+    grid-gap: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.member-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.member-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.member-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.member-role {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: rgb(11, 185, 171);
+    transition: width 0.3s ease;
+}
+
+.member-progress {
+    font-size: 14px;
+    text-align: right;
+}
+
+.progress-details {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #fff;
+    margin: 0;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.member-progress {
+    font-size: 14px;
+    text-align: right;
+}
+
+.member-rank {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: darkcyan;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+
+
+.add-member-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.add-member-popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.add-member-popup-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.add-member-form input[type='text'] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buttons-pop {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-button,
+.cancel-button {
+    width: 100px;
+    height: 40px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.add-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.cancel-button {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.add-button:hover {
+    background-color: rgb(9, 103, 103);
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.chat-area {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .members-list {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .members-container {
+        margin: 0;
+    }
+
+    .members-header {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .members-header h2 {
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .add-member-button {
+        margin-top: 10px;
+    }
+
+    .members-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-gap: 10px;
+    }
+
+    .member-card {
+        padding: 10px;
+    }
+
+    .member-name {
+        font-size: 14px;
+    }
+
+    .member-role {
+        font-size: 12px;
+    }
+
+    .member-rank {
+        top: 5px;
+        right: 5px;
+        font-size: 14px;
+    }
+
+    .chat-area {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

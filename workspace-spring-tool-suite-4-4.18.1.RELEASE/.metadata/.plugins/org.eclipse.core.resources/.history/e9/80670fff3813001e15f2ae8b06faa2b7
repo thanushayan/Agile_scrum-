@@ -1,0 +1,144 @@
+package com.projectTwo.AS_PMT_Project_Service.Controllers;
+
+import java.text.ParseException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import com.projectTwo.AS_PMT_Project_Service.Entities.ProjectAndUserEntity;
+import com.projectTwo.AS_PMT_Project_Service.Entities.Project_Entity;
+import com.projectTwo.AS_PMT_Project_Service.Services.ProjectService;
+
+@RestController
+@RequestMapping("/projects")
+public class ProjectController {
+
+    private final ProjectService projectService;
+    private final RestTemplate restTemplate;
+
+
+    public ProjectController(ProjectService projectService,RestTemplateBuilder restTemplateBuilder) {
+        this.projectService = projectService;
+        this.restTemplate = restTemplateBuilder.build();
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Project_Entity> createProject(@RequestBody Project_Entity project) {
+        Project_Entity createdProject = projectService.createProject(project);
+
+        // Create ProjectAndUserEntity for the project creator
+        ProjectAndUserEntity projectAndUser = new ProjectAndUserEntity();
+        projectAndUser.setUserId(project.getCreatorId());
+        projectAndUser.setProjectId(project.getProjectId());
+        projectAndUser.setUserRole("Admin");
+
+        String createUserProfileUrl = "http://localhost:8087/api/project-and-user/add";
+
+        try {
+            ResponseEntity<ProjectAndUserEntity> createdProfileResponse = restTemplate.postForEntity(createUserProfileUrl, projectAndUser, ProjectAndUserEntity.class);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
+        } catch (Exception e) {
+            e.printStackTrace(); // Print the exception for debugging purposes
+            // Rollback the created project if the profile creation fails
+            projectService.deleteProject(createdProject.getProjectId());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
+    @GetMapping("/users/{userId}/view-all")
+    public ResponseEntity<List<Project_Entity>> getAllProjects(@PathVariable("userId") String userId) {
+        try {
+            String getUserProfileUrl = "http://localhost:8087/api/project-and-user/users/" + userId;
+            ResponseEntity<ProjectAndUserEntity[]> response = restTemplate.getForEntity(getUserProfileUrl, ProjectAndUserEntity[].class);
+
+            if (response.getStatusCode() == HttpStatus.NOT_FOUND) {
+                return ResponseEntity.noContent().build();
+            }
+
+            ProjectAndUserEntity[] projectAndUsers = response.getBody();
+
+            List<ProjectAndUserEntity> projectAndUserEntities = Arrays.asList(projectAndUsers);
+
+            if (projectAndUserEntities.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+
+            List<String> projectIds = projectAndUserEntities.stream()
+                    .map(ProjectAndUserEntity::getProjectId)
+                    .collect(Collectors.toList());
+
+            List<Project_Entity> projects = projectService.getProjectsByIds(projectIds);
+            if (projects.isEmpty()) {
+                return ResponseEntity.accepted().build();
+            }
+
+            return ResponseEntity.ok(projects);
+        } catch (HttpClientErrorException.NotFound ex) {
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
+
+
+    @GetMapping("/users/{userId}/search/{projectId}")
+    public ResponseEntity<Project_Entity> getProjectById(@PathVariable String userId, @PathVariable String projectId) {
+        try {
+        	String getUserProfileUrl = "http://localhost:8087/api/project-and-user/users/" + userId + "/" + projectId;
+            // Check if the project belongs to the user 
+            ResponseEntity<ProjectAndUserEntity> projectAndUser = restTemplate.getForEntity(getUserProfileUrl,ProjectAndUserEntity.class);
+            if (projectAndUser == null) {
+                return ResponseEntity.noContent().build();
+            }
+            
+            // Retrieve the project details
+            Project_Entity project = projectService.getProjectByProjectId(projectId);
+            if (project == null) {
+                return ResponseEntity.noContent().build();
+            } else {
+                return ResponseEntity.ok(project);
+            }
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+
+    @PostMapping("/update/{projectId}")
+    public ResponseEntity<Project_Entity> updateProjectDetail(@PathVariable String projectId, @RequestBody Project_Entity project) throws ParseException {
+        try {
+            Project_Entity updatedProject = projectService.updateProject(projectId, project);
+            if (updatedProject != null) {
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedProject);
+            } else {
+                return ResponseEntity.noContent().build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+
+    @DeleteMapping("/delete/{projectId}")
+    public ResponseEntity<Void> deleteProject(@PathVariable String projectId) {
+    	String getUserProfileUrl = "http://localhost:8087/api/project-and-user/delete/" + projectId;
+    	
+        projectService.deleteProject(projectId);
+        restTemplate.delete(getUserProfileUrl);
+        
+        return ResponseEntity.noContent().build();
+    }
+}

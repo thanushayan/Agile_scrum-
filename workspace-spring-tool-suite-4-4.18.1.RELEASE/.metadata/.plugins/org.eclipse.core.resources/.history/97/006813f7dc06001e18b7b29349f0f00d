@@ -1,0 +1,99 @@
+package com.projectTwo.AS_PMT_Project_Service.Entities;
+
+import lombok.*;
+import jakarta.persistence.*;
+import java.util.Date;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "projects")
+public class Project_Entity {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "project_id", unique = true, nullable = false)
+    private String projectId;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "project_manager_id", nullable = false)
+    private Long projectManagerId;
+    
+    @Column(name = "creator_id", nullable = false)
+    private Long creatorId;
+
+    @Column(name = "start_date", nullable = false)
+    private Date startDate;
+
+    @Column(name = "end_date", nullable = false)
+    private Date endDate;
+    
+    @Column(name = "created_date", nullable = false)
+    private Date createdDate;
+
+    @Column(name = "last_updated_date", nullable = true)
+    private Date lastUpdatedDate;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+    
+    
+    //TestJson
+    /*
+     {
+  		"projectId": "P001",
+  		"name": "Sample Project",
+  		"projectManagerId": 12345,
+  		"creatorId": 67890,
+  		"startDate": "2022-01-01",
+  		"endDate": "2022-12-31",
+  		"createdDate": "2022-01-01T12:00:00Z",
+  		"lastUpdatedDate": "2022-05-01T10:00:00Z",
+  		"description": "This is a sample project."
+	}
+*/
+
+    // Getters and Setters
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+    
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProjectManagerId(Long projectManagerId) {
+        this.projectManagerId = projectManagerId;
+    }
+
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setLastUpdatedDate(Date lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}

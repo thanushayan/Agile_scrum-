@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;AS_PMT_UserPerofile_Service&apos; to &apos;AS_PMT_UserProfile_Service&apos;&#x0D;&#x0A;- Original element: &apos;AS_PMT_UserPerofile_Service&apos;&#x0D;&#x0A;- Renamed element: &apos;AS_PMT_UserPerofile_Service&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;AS_PMT_UserPerofile_Service&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=AS_PMT_UserPerofile_Service" name="AS_PMT_UserProfile_Service" references="true" stamp="1698564508099" version="1.0"/>
+</session>

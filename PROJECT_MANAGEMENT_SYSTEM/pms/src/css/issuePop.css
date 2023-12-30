@@ -1,0 +1,99 @@
+.issue-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 40vw;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+.form-group-btn {
+    display: inline;
+}
+
+.popup-close-button {
+    position: relative;
+    padding: 10px 20px;
+    background-color: #e41b0d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+}
+
+.popup-close-button:hover {
+    background-color: #9c0a0a;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 8px;
+    display: grid;
+}
+
+.label {
+    font-size: 10px;
+    display: inline-block;
+}
+
+.form-group input[type='text'],
+input[type='date'],
+textarea,
+select {
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-group-btn .add-button:hover {
+    background-color: #156a56;
+}
+
+.form-group-btn .add-button {
+    position: relative;
+    padding: 10px 20px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    justify-self: center;
+}
+
+.form-group-btn .open-for-poker-button:hover {
+    background-color: #19a584;
+}
+
+.form-group-btn .open-for-poker-button {
+    position: relative;
+    padding: 10px 20px;
+    background-color: rgb(0, 2, 139);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    justify-self: center;
+}

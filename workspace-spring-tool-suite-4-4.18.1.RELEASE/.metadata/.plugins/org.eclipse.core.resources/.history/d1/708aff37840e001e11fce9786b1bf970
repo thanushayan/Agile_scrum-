@@ -1,0 +1,70 @@
+package com.projectTwo.AS_PMT_Project_Service.Controllers;
+
+import java.text.ParseException;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.projectTwo.AS_PMT_Project_Service.Entities.Project_Entity;
+import com.projectTwo.AS_PMT_Project_Service.Services.ProjectService;
+
+@RestController
+@RequestMapping("/projects")
+public class ProjectController {
+	private final ProjectService projectService;
+
+	    public ProjectController(ProjectService projectService) {
+	        this.projectService = projectService;
+	    }
+
+	    @PostMapping(value = "/create=newproject")
+	    public ResponseEntity<Project_Entity> createProject(@RequestBody Project_Entity project) {
+	    	Project_Entity createdProject = projectService.createProject(project);
+	        return ResponseEntity.status(HttpStatus.CREATED).body(createdProject);
+	    }
+
+	    @GetMapping(value = "/view=allprojects")
+	    public ResponseEntity<List<Project_Entity>> getAllProjects() {
+	        List<Project_Entity> projects = projectService.getAllProjects();
+	        return ResponseEntity.ok(projects);
+	    }
+
+	    @GetMapping(value = "search/{projectId}")
+	    public ResponseEntity<Project_Entity> getProjectById(@PathVariable String projectId) {
+	    	try {
+	            Project_Entity project = projectService.getProjectByProjectId(projectId);
+	            if (project == null) {
+	                return null;
+	            } else {
+	                // Project found, you can perform further operations or return a success message
+	            	returnProject(project);
+	                return ResponseEntity.ok(project);
+	            }
+	        } catch (NoSuchElementException e) {
+	            return null;
+	        }
+	    }
+	    
+	    @PostMapping(value = "update/{projectId}")
+	    public ResponseEntity<Project_Entity> updateProjectDetail(@PathVariable String projectId, @RequestBody Project_Entity project) throws ParseException {
+	    	Project_Entity updatedProject = projectService.updateProject(projectId, project);
+	        return ResponseEntity.status(HttpStatus.ACCEPTED).body(updatedProject);
+	    }
+	    
+	   
+	    
+	    public ResponseEntity<Project_Entity> returnProject(Project_Entity project) 
+	    {
+	    	return ResponseEntity.ok(project);
+	    }
+
+	    @DeleteMapping(value = "delete/{projectId}")
+	    public ResponseEntity<Void> deleteProject(@PathVariable String projectId) {
+	        projectService.deleteProject(projectId);
+	        return ResponseEntity.noContent().build();
+	    }
+	}
+

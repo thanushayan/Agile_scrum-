@@ -1,0 +1,158 @@
+package com.projectTwo.AS_PMT_Project_Service.Entities;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.projectTwo.AS_PMT_Project_Service.utils.TimeFormatterUtil;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Issues")
+public class Issue_Entity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "issueId", nullable = true)
+    private String issueId;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "description", nullable = true)
+    private String description;
+    
+    @Column(name = "status", nullable = true)
+    private String status;
+
+    @Column(name = "start_date", nullable = true)
+    private Date startDate;
+    
+    @Column(name = "type", nullable = false)
+    private IssueType type;
+
+    @Column(name = "end_date", nullable = true)
+    private Date endDate;
+
+    @Column(name = "created_by", nullable = false)
+    private String createdBy;
+
+    @Column(name = "assigned_to", nullable = true)
+    private String assignedTo;
+    
+    @ManyToMany(targetEntity = Issue_Entity.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "sub_Tasks", referencedColumnName = "task_id")
+    private List<Sub_Task_Entity> tasks = new ArrayList<>();
+
+    // Constructors, getters, and setters
+    
+    public Issue_Entity() {
+    }
+
+    public Issue_Entity(String title, String description, Date startDate, Date endDate, String createdBy, String assignedTo) {
+        this.title = title;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.createdBy = createdBy;
+        this.assignedTo = assignedTo;
+    }
+
+    // Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public void setType(IssueType type)
+    {
+    	this.type = type;
+    }
+    
+    public IssueType getType()
+    {
+    	return type;
+    }
+    
+    public String getIssueId() {
+        return issueId;
+    }
+    
+    public void setIssueId(String issueId) {
+        this.issueId = issueId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStartDate() {
+    	if(startDate==null)
+    	{
+    		return null;
+    	}
+    	return new TimeFormatterUtil("yyyy-MM-dd").formatTheDate(startDate);
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+    	if(endDate==null)
+    	{
+    		return null;
+    	}
+    	return new TimeFormatterUtil("yyyy-MM-dd").formatTheDate(endDate);
+    }
+    
+    public List<Sub_Task_Entity> getTasks() {
+        return tasks;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(String assignedTo) {
+        this.assignedTo = assignedTo;
+    }
+    
+    public Date StringTodate(String date) throws ParseException
+    {
+    	String dateString = date;
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	return dateFormat.parse(dateString);
+    }
+}

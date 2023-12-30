@@ -1,0 +1,51 @@
+package com.projectTwo.AS_PMT_Project_Service.Controllers;
+
+import com.projectTwo.AS_PMT_Project_Service.Entities.ProjectAndUserEntity;
+import com.projectTwo.AS_PMT_Project_Service.Services.ProjectAndUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/project-and-user")
+public class ProjectAndUserController {
+
+    private final ProjectAndUserService projectAndUserService;
+
+    @Autowired
+    public ProjectAndUserController(ProjectAndUserService projectAndUserService) {
+        this.projectAndUserService = projectAndUserService;
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<ProjectAndUserEntity> createProjectAndUser(@RequestBody ProjectAndUserEntity projectAndUser) {
+        ProjectAndUserEntity createdProjectAndUser = projectAndUserService.createProjectAndUser(projectAndUser);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProjectAndUser);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProjectAndUser(@PathVariable Long id) {
+        projectAndUserService.deleteProjectAndUser(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<List<ProjectAndUserEntity>> getProjectsByUserId(@PathVariable String userId) {
+        List<ProjectAndUserEntity> projects = projectAndUserService.getProjectsByUserId(userId);
+        if (projects.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(projects);
+    }
+    
+    @DeleteMapping("/delete/{projectId}")
+    public ResponseEntity<Void> deleteProjectAndUserByProjectId(@PathVariable String projectId) {
+        projectAndUserService.deleteProjectAndUserByProjectId(projectId);
+        return ResponseEntity.noContent().build();
+    }
+
+}

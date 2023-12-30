@@ -1,0 +1,78 @@
+.profileContain {
+    margin: 40px auto;
+    display: block;
+}
+
+.slider-container {
+    position: fixed;
+    right: 0;
+    max-width: 800px;
+    min-width: 700px;
+    z-index: 1;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 40px);
+}
+
+.slider-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #dae6ea;
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(39, 38, 38, 0.553);
+}
+
+@keyframes slide-in {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.logOutBtn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: darkcyan;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    margin-bottom: 15px;
+
+}
+
+.logOutBtn:hover {
+    background-color: rgb(7, 71, 65);
+}

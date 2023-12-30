@@ -1,0 +1,37 @@
+.sidebar {
+    width: 150px;
+    height: 100%;
+    max-width: 150px;
+    min-width: 150px;
+    background-color: #def7fa;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.Menu {
+    list-style-type: none;
+    display: block;
+    padding: 0;
+}
+
+.list {
+    margin: 20px 0;
+    padding: 5px 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.list:hover {
+    background-color: #ddd;
+}
+
+.selected {
+    color: blue;
+}

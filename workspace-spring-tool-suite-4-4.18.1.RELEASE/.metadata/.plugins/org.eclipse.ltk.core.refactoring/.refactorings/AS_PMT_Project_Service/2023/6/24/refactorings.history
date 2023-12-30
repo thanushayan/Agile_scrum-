@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.projectTwo.AS_PMT_Project_Service.RestCallEntities&apos; to &apos;AS_PMT_Sprint_Service/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;AS_PMT_Project_Service&apos;&#x0D;&#x0A;- Destination element: &apos;AS_PMT_Sprint_Service/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;AS_PMT_Project_Service/src/main/java/com.projectTwo.AS_PMT_Project_Service.RestCallEntities&apos;" description="Copy package" destination="=AS_PMT_Sprint_Service/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.projectTwo.AS_PMT_Project_Service.RestCallEntities" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1686444724574" version="1.0"/>
+</session>

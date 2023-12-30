@@ -1,0 +1,174 @@
+.voting-system-container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 15px;
+    flex: 100%;
+    box-shadow: 1px 0.5px 2px black;
+    height: fit-content;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.poker-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #19a7ad;
+    color: #fff;
+    font-size: 24px;
+    width: 100px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    animation: pulse 1s infinite alternate;
+}
+
+.poker-card:hover {
+    background-color: #0f8488;
+}
+
+.value {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.03);
+    }
+}
+
+.votes-summary {
+    text-align: center;
+}
+
+.votes-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.vote-item {
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 18px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.average {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.chart {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart h3 {
+    margin-bottom: 10px;
+}
+
+.recharts-cartesian-grid-horizontal line {
+    stroke: #053d2c;
+}
+
+.recharts-cartesian-grid-vertical line {
+    stroke: #053d2c;
+}
+
+.recharts-tooltip-wrapper {
+    background-color: #5ef0da59;
+    border: 1px solid #9ba7a6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    font-size: 14px;
+    color: darkcyan;
+}
+
+.recharts-legend-item {
+    cursor: pointer;
+    font-size: 14px;
+    color: darkcyan;
+}
+
+.recharts-legend-item:hover {
+    opacity: 0.7;
+}
+
+.recharts-legend-text {
+    fill: #065f4e;
+}
+
+.recharts-bar-rectangle {
+    cursor: pointer;
+    transition: fill 0.2s ease-in-out;
+}
+
+.recharts-bar-rectangle:hover {
+    fill: #168c91;
+}
+
+.recharts-tooltip-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.recharts-tooltip-item-name {
+    margin-right: 5px;
+    color: darkcyan;
+    font-weight: bold;
+}
+
+.recharts-tooltip-item-value {
+    color: darkcyan;
+}
+
+/* ... Other styles remain the same ... */
+
+.votes-table {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.votes-table th,
+.votes-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.votes-table th {
+    background-color: #19a7ad;
+    color: #fff;
+}
+
+.votes-table tbody tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}

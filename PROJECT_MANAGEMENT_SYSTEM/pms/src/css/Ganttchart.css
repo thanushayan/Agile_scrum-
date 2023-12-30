@@ -1,0 +1,75 @@
+/* styles.css */
+
+/* Body styles */
+body {
+    background-color: #fff;
+    /* White background color */
+    color: #236db7;
+    /* Dark text color */
+}
+
+/* Card styles */
+.card {
+    margin-top: 20px;
+}
+
+/* Gantt chart container styles */
+#gantt-chart-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Project heading styles */
+.project-heading {
+    color: darkcyan;
+    /* Dark cyan color for the heading */
+}
+
+/* Alerts container styles */
+#alerts-container {
+    margin-top: 10px;
+}
+
+/* Critical path alert styles */
+.alert-critical {
+    background-color: #ac2f2197;
+    /* Red background color for critical path alerts */
+    color: #fff;
+    /* White text color */
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.alert-critical:hover {
+    background-color: #9a2215;
+    /* Red background color for critical path alerts */
+    color: #fff;
+    /* White text color */
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Completed task alert styles */
+.alert-completed {
+    background-color: #0d803d9f;
+    /* Green background color for completed task alerts */
+    color: #fff;
+    /* White text color */
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.alert-completed:hover {
+    background-color: #098f41;
+    /* Green background color for completed task alerts */
+    color: #fff;
+    /* White text color */
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Gantt chart date and time styles */
+#gantt-chart-container text {
+    fill: rgb(219, 202, 52);
+    /* Blue color for the date and time text */
+}

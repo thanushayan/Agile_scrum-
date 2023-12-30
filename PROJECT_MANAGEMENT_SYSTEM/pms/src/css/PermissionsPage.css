@@ -1,0 +1,279 @@
+  .permissions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .permission-box {
+    border: 0.5px solid rgba(0, 139, 139, 0.403);
+    background-color: #fff;
+    padding: 20px;
+    width: 80%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  
+  .permission-box:hover {
+    transform: scale(1.005);
+  }
+/*   
+  input[type="checkbox"] {
+    padding: 5px;
+    border: 1px solid darkcyan;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 60%;
+  } */
+  input[type="checkbox"] {
+    padding: 5px;
+    border: 2px solid darkcyan;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 20px; /* Increase the width and height of the checkbox */
+    height: 20px;
+  }
+  
+  
+  h3 {
+    color: darkcyan;
+    font-size: 24px; 
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.3;
+  }
+
+  .role-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    margin-top: 10px;
+  }
+
+  label {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    width: calc(25% - 15px);
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+  }
+  
+  
+
+  /* @media (max-width: 768px) {
+    .role-checkboxes {
+      flex-direction: column;
+    }
+  
+    label {
+      width: 100%;
+    }
+
+    .permissions-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .permission-box {
+      width: 90%;
+    }
+  
+    .role-checkboxes {
+      flex-direction: column;
+    }
+  
+    label {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .edit-buttons {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+    */
+  .add-role button {
+    padding: 5px 15px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .edit-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .ok-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  } 
+  
+  .error {
+    color: red;
+    font-size: small;
+    margin-top: 3px;
+  }
+  
+  @media (max-width: 768px) {
+    .permissions-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .permission-box {
+      width: 90%;
+    }
+  
+    .role-checkboxes {
+      flex-direction: column;
+    }
+  
+    label {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+/* 
+  .permissions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .permission-box {
+    border: 0.5px solid rgba(0, 139, 139, 0.403);
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .permission-box:hover {
+    transform: scale(1.005);
+  }
+  
+  input[type="checkbox"] {
+    padding: 5px;
+    border: 2px solid darkcyan;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  h3 {
+    color: darkcyan;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #555;
+    line-height: 1.3;
+  }
+  
+  .role-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 10px;
+  } */
+  
+  label {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    width: calc(25% - 15px);
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+  }
+  
+  .add-role button {
+    padding: 5px 15px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .edit-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the edit button is above other elements */
+  }
+  
+  .ok-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: darkcyan;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the ok button is above other elements */
+  }
+  
+  @media (max-width: 768px) {
+    .permission-box {
+      width: 90%;
+    }
+    .role-checkboxes {
+      flex-direction: column;
+    }
+    label {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .edit-button,
+    .ok-button {
+      position: static;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
